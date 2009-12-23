@@ -18,7 +18,15 @@
 #******************************************
 @keyword = { }
 @keyword[:path] = "/manageKeywords"
+
 @keyword[:create_btn_lctr] = "//div[@id='bigMenu']/span[1]/span[2]"
+
+@keyword[:last_keyword_lctr] = "//table[@id='keywords']/tbody/tr[last()]/td[1]"
 @keyword[:new_keywd_ta_lctr] = "newKeywordBox"
 @keyword[:submit_keyword_creation_btn_lctr]    = "//input[@value='Create']"
+@keyword[:keyword_used_msg] = "The keyword name is already in use. Please, choose another keyword name."
+
+@keyword[:count_keywords_scpt] = "window.document.getElementsByClassName('keywordname', null, window.document).length / 2"
+
+
 

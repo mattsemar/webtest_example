@@ -8,12 +8,13 @@ require "selenium"
 
 require "log4r"
 
+require 'ruby-debug'
 
 
 
 ROOT = "#{File.dirname(__FILE__)}/" unless defined?(ROOT)
 
-EXCLUSIONS = [ 'require.rb',  'ui_maps.*', 'spec_helper.rb', '.*spec.rb', 'tmp*', "console_start.rb" ]
+EXCLUSIONS = [ 'require.rb',  'ui_maps.*', 'spec_helper.rb', '.*spec.rb', 'tmp*', "console*" ]
 
 # #$console_loaded = false
 

@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+
+puts "to complete startup: "
+puts "eval File.read(\"console_start.rb\")"
+
+
+require File.dirname(__FILE__) + '/console'

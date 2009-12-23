@@ -54,12 +54,11 @@ Spec::Runner.configure do |config|
       @selenium.start
       @selenium.open
     else
-      sel_type = "*chrome"
-      if `hostname` =~ /Mac/i
-        puts "changing selenium driver type"
-        sel_type =  "*firefox3"
-      end
-      @selenium = Selenium::SeleniumDriver.new("localhost", 4444, sel_type, @url, 60)
+      browser_key = "*chrome"
+      browser_key = "*chrome ./script/selenium-firefox" unless (`uname -a` =~ /Darwin Kernel Version 10/).nil?
+      puts "browser_key : #{browser_key}"
+      @selenium = Selenium::SeleniumDriver.new("localhost", 4444, browser_key, @url, 60)
+
       @selenium.start
     end
     @selenium.open(@url)

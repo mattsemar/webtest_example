@@ -17,8 +17,13 @@ describe "Keywords" do
   end
 
   it "should prevent creation of duplicate keywords" do
-    run_create_keyword_example(:should_succeed => false, :keyword => "mad")
+    run_create_keyword_example(:should_succeed => false, :keyword => "mad", :message => ui[:keyword_used_msg])
   end
+
+  it "should handle attempt to create a keyword that is too long" do
+    run_create_keyword_example(:should_succeed => false, :keyword => create_keyword(:min_sz => 25), :message => ui[:keyword_length_msg])
+  end
+
 
   
 

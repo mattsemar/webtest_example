@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ ~/install/FF3.0/Firefox.app/Contents/MacOS/firefox-bin $@
+exit $?
+

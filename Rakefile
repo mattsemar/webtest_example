@@ -43,7 +43,7 @@ Selenium::Rake::RemoteControlStartTask.new do |rc|
   rc.jar_file = "./rc/selenium-server.jar"
   #  rc.additional_args << "-singleWindow -firefoxProfileTemplate ./rc/selenium-ff-profile"
 #  rc.additional_args << "-firefoxProfileTemplate ../selenium-ff-profile"
-  rc.additional_args << "-firefoxProfileTemplate ./selenium-ff-profile"
+#  rc.additional_args << "-firefoxProfileTemplate ./selenium-ff-profile"
 
 end
 
