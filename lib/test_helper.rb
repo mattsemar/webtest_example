@@ -3,8 +3,6 @@ module TestHelper
 
   def login()
     page.open "/"
-    click_wait @ui_map.login[:login_btn_lctr]
-
     page.type @ui_map.login[:user_id_lctr], @user
     page.type @ui_map.login[:password_lctr], @password
     click_wait @ui_map.login[:login_page_submit_btn]
@@ -14,7 +12,7 @@ module TestHelper
   end
 
   def logged_in?
-    page.text?(@ui_map.logged_in_text)   == true
+    page.is_element_present("navAccountLink") 
   end
 
 

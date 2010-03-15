@@ -47,9 +47,9 @@ Spec::Runner.configure do |config|
   def init()
     @ui_map = UIMap.new()
 
-    @user = "company@one.com"
-    @password = "1"
-    @url = "http://dev4-slamtext.castdot.com/"
+    @user = "mattlsemar@yahoo.com"
+    @password = "password1234"
+    @url = "http://www.facebook.com"
     if @selenium and !@selenium.session_started?
       @selenium.start
       @selenium.open
