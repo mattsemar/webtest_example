@@ -19,7 +19,6 @@ Selenium::Rake::RemoteControlStartTask.new do |rc|
   #  rc.additional_args << "-singleWindow -firefoxProfileTemplate ./rc/selenium-ff-profile"
   #  rc.additional_args << "-firefoxProfileTemplate ../selenium-ff-profile"
   #  rc.additional_args << "-firefoxProfileTemplate ./selenium-ff-profile"
-
 end
 
 Selenium::Rake::RemoteControlStopTask.new do |rc|

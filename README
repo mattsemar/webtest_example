@@ -1,26 +1,26 @@
 Run it:
-   rake 
+   thor tests
 
-probably have to install 2 gems:
+Need 2 gems:
      gem install -v 1.2.8 rspec
      gem install -v 1.2.7 selenium-client
 
-Results:
+Viewing Results:
    open up tmp/rspec_report/acceptance_tests_report.html  in a browser to see what happened.
 
    - The heavy lifting is done in the example files (search_example.rb)   
-   - defaults.rb:  UI Mapping: for the idea behind creating a UI Map, see this article:  UI Mapping  The elements used by the scripts to locate different parts of the website is separated from the script itself.  It makes the code more self documenting:
+   - defaults.rb:  UI Mapping  The element locators used by the scripts are separated from the script itself.
+        It makes the code more self documenting:
 
       click_wait "//input[@value='Create']"      # does not give you much idea about what we are trying to accomplish
-
       click_wait ui[:submit_keyword_creation_btn_lctr]          # tells more of the story
 
-   -  I just glossed over the whole account creation/login part of the equation, but if you were to extend this framework with that in mind, you would create a new file called "registration_spec.rb".  The rake task will run any files it finds called *spec.rb. 
+   -  I just glossed over the whole account creation/login part of the equation, but if you were to extend this framework with that in mind,
+        you would create a new file called "registration_spec.rb".  The rake task will run any files it finds called *spec.rb.
    - If you create a new spec file, make a new section in defaults.rb for the UI locators needed for that piece.  
 
 Notes:
 
-Mac Issues? I had some problems getting selenium to be able to launch firefox on my mac.  That's the reason for script/selenium-firefox.  It expects Firefox.app (firefox version 3.0) in ~/install/FF3.0.
-
-This doesn't do much yet
+* Mac Issues? Should be resolved by upgrade to selenium-server-standalone-2.0a2
+* Doesn't do much, yet
 
