@@ -55,7 +55,6 @@ Spec::Runner.configure do |config|
       @selenium.open
     else
       browser_key = "*chrome"
-      browser_key = "*chrome ./script/selenium-firefox" unless (`uname -a` =~ /Darwin Kernel Version 10/).nil?
       puts "browser_key : #{browser_key}"
       @selenium = Selenium::SeleniumDriver.new("localhost", 4444, browser_key, @url, 60)
 
