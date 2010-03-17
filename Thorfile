@@ -50,6 +50,7 @@ class Tests < Thor
     create_report_dir
     rc_start
     Rake::Task["test:acceptance:web"].execute
+    exec "open #{File.join(File.expand_path(File.dirname(__FILE__) + '/tmp/rspec_report'), 'acceptance_tests_report.html')}"
   end
 
   desc 'create_report_dir', "Create the directory where the html report will be stored."
@@ -60,9 +61,7 @@ class Tests < Thor
   end
 
   desc 'rc_start', "Start the selenium remote control process"
-
   def rc_start
-    rc_stop
     Rake::Task["selenium:rc:start"].execute
   end
 

@@ -1,6 +1,13 @@
 Run it:
    thor tests
 
+   Prevent logging overload
+     - In one terminal window (this one will be inundated with selenium logging message)
+         thor tests:rc_start
+     - In another
+         thor tests
+
+
 Need 2 gems:
      gem install -v 1.2.8 rspec
      gem install -v 1.2.7 selenium-client
