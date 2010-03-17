@@ -16,7 +16,8 @@ module SearchExample
     sleep 5
 
     if options[:should_succeed]
-      page.text(ui[:view_app]).should eql "View Application"
+      page.element?(ui[:view_app]).should be_true
+      link_href(ui[:view_app]).should =~ ui[:app_id_regex]
     else
       page.text?(options[:message]).should be_true
     end

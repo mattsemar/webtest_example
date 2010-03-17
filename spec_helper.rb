@@ -49,7 +49,7 @@ Spec::Runner.configure do |config|
 
     @user = "mattlsemar@yahoo.com"
     @password = "password1234"
-    @url = "http://www.facebook.com"
+    @url = "http://facebook.com"
     if @selenium and !@selenium.session_started?
       @selenium.start
       @selenium.open
@@ -62,7 +62,6 @@ Spec::Runner.configure do |config|
     end
     @selenium.open(@url)
 
-    @selenium.window_maximize()
     setup_aux()
   end
 

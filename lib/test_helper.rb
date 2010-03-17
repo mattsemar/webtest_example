@@ -12,7 +12,7 @@ module TestHelper
   end
 
   def logged_in?
-    page.is_element_present("navAccountLink") 
+    @ui_map.logged_in_check.call(page) 
   end
 
 
@@ -57,5 +57,9 @@ module TestHelper
     [ left, right ]
   end
 
+  # Using a selenium element locator, return href attribute
+  def link_href(locator)
+    page.get_eval("this.browserbot.findElement('#{locator}')")
+  end
 
 end

@@ -8,14 +8,12 @@ describe "Search" do
 
   def setup_aux()
     @ui = @ui_map.search
-
     login() if !logged_in?
   end
   
-  it "should show View Application link from search results" do
+  it "should have correct application id in View Application link on search results page" do
     run_search(:should_succeed => true, :term => "Nestle Crunch Challenge")
   end
 
-  
 
 end
