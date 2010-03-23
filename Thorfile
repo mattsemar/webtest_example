@@ -75,8 +75,8 @@ class Tests < Thor
   end
 
   desc 'execute [CLIENT]', "Run the selenium tests for CLIENT"
-  
-  def execute(client="")
+  method_options :client => "clorox", :required => true, :type => :string, :aliases => "-c"
+  def execute(client=options[:client])
     ENV["CLIENT"] = client
     Rake::Task["test:acceptance:web"].execute
   end
