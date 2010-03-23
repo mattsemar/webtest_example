@@ -1,7 +1,10 @@
 ##- Base ui_map definitions
 
+@user = "mattlsemar@yahoo.com"
+@password = "password1234"
+
 # Paths to various pages on site
-@path = ""
+@url = "http://www.facebook.com"
 
 # Text values for various parts of the site
 @logged_in_check = Proc.new{ |browser| browser.element?("navAccountLink") }
@@ -12,6 +15,8 @@
 @login[:password_lctr] = "pass"
 @login[:login_page_submit_btn] = "//input[@value='Login']"
 
+@login[:login_prompt_text] = "Login to Facebook to enjoy the full functionality of "
+
 
 @quiz =  { }
 @quiz[:path] =                        "http://apps.facebook.com/crunchchallenge/teams"
@@ -19,15 +24,9 @@
 @quiz[:play_game_verification_txt] =  "Ready to play?"
 
 #******************************************
-#search specific mappings
+#main page specific mappings
 #******************************************
-@search = { }
-@search[:path] = "/"
-@search[:search_field] = "q"
-@search[:search_btn] = "//button[@type='submit']"
-@search[:view_app] = "link=View Application"
-@search[:app_id_regex] = /id=222136570931/
-
+@main = { }
 
 #@search[:count_keywords_scpt] = "window.document.getElementsByClassName('keywordname', null, window.document).length / 2"
 

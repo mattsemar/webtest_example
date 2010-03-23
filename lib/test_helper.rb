@@ -3,16 +3,24 @@ module TestHelper
 
   def login()
     page.open "/"
+    fill_login
+    debugger if logged_in? != true
+  end
+
+  def fill_login()
     page.type @ui_map.login[:user_id_lctr], @user
     page.type @ui_map.login[:password_lctr], @password
     click_wait @ui_map.login[:login_page_submit_btn]
-
-    debugger if logged_in? != true
-
   end
 
   def logged_in?
-    @ui_map.logged_in_check.call(page) 
+    @ui_map.logged_in_check.call(page)
+  end
+
+  def logout()
+    location = page.location
+    click_wait("link=Logout")
+    page.open(location)
   end
 
 
@@ -49,7 +57,7 @@ module TestHelper
     sz = (upper - lower) + 1
     rand(sz) + lower
   end
-  
+
   def rand_indexes(lower, upper)
     left = rand_num(lower, upper)
     left -= 1 if left == upper
@@ -60,6 +68,16 @@ module TestHelper
   # Using a selenium element locator, return href attribute
   def link_href(locator)
     page.get_eval("this.browserbot.findElement('#{locator}')")
+  end
+
+  # If the user is logged out and we want them to be logged in, log them in
+  # If they are logged out and we want logged in. Log them out
+  def sync_login_status(should_be_logged_in)
+    if should_be_logged_in and !logged_in?
+      login()
+    elsif !should_be_logged_in and logged_in?
+      logout()
+    end
   end
 
 end

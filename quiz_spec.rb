@@ -11,10 +11,10 @@ describe "Quiz" do
     page.open("http://apps.facebook.com/crunchchallenge/teams")
   end
   
-  it "should show quiz when Play Game link is clicked" do
-    run_play_game :should_succeed => true,
-                  :verification_text => ui[:play_game_verification_txt]
-  end
+#  it "should show quiz when Play Game link is clicked" do
+#    run_play_game :should_succeed => true,
+#                  :verification_text => ui[:play_game_verification_txt]
+#  end
 
-  
+
 end

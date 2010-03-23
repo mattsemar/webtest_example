@@ -44,13 +44,13 @@ class Tests < Thor
 
   default_task :all
 
-  desc 'all', "Perform tests using selenium"
-
-  def all
+  desc 'all CLIENT', "Perform tests using selenium"
+  method_options :client => "clorox", :required => true, :type => :string, :aliases => "-c"
+  def all()
     create_report_dir
     rc_start
-    Rake::Task["test:acceptance:web"].execute
-    exec "open #{File.join(File.expand_path(File.dirname(__FILE__) + '/tmp/rspec_report'), 'acceptance_tests_report.html')}"
+    execute(options[:client])
+    puts "open #{File.join(File.expand_path(File.dirname(__FILE__) + '/tmp/rspec_report'), 'acceptance_tests_report.html')}"
   end
 
   desc 'create_report_dir', "Create the directory where the html report will be stored."
@@ -72,6 +72,13 @@ class Tests < Thor
       Rake::Task["selenium:rc:stop"].execute
     rescue Exception
     end
+  end
+
+  desc 'execute [CLIENT]', "Run the selenium tests for CLIENT"
+  
+  def execute(client="")
+    ENV["CLIENT"] = client
+    Rake::Task["test:acceptance:web"].execute
   end
 
 end

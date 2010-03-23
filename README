@@ -1,11 +1,11 @@
 Run it:
-   thor tests
+   thor tests -c clorox 
 
    Prevent logging overload
      - In one terminal window (this one will be inundated with selenium logging message)
          thor tests:rc_start
      - In another
-         thor tests
+         thor tests -c clorox
 
 
 Need 2 gems:

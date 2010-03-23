@@ -25,14 +25,14 @@ end
 
 
 class UIMap < UIMapBase
-  def initialize(variables = {} )
+  def initialize(options = {})
     super()
-    fname =  File.join(ROOT, "ui_maps", "#{client_name}.rb")
-    if File.exist?(fname) and !client_name.nil?
-      email = variables[:email]
+    client_name = options[:client_name]
+    if client_name
+      fname =  File.join(ROOT, "ui_maps", "#{client_name}.rb")
       eval File.read(fname)
     else
-      $logger.warn "Could not find #{fname}"
+      $logger.warn "Could not find #{client_name}"
     end
 
   end

@@ -45,11 +45,16 @@ Spec::Runner.configure do |config|
   end
 
   def init()
-    @ui_map = UIMap.new()
+    @client_name = ENV['CLIENT']
+    @ui_map = UIMap.new(:client_name => @client_name)
+    @url = @ui_map.url
+    @user = @ui_map.user
+    @password = @ui_map.password
 
-    @user = "mattlsemar@yahoo.com"
-    @password = "password1234"
-    @url = "http://facebook.com"
+    puts "url: #{@url}"
+    puts "user: #{@user}"
+    puts "pass: #{@password}"
+
     if @selenium and !@selenium.session_started?
       @selenium.start
       @selenium.open
